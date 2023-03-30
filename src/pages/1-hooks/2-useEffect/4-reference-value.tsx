@@ -26,6 +26,7 @@ export function ReferenceValue() {
   return (
     <>
       <Title className="mb-4">4. ReferenceValue</Title>
+
       <div className="flex gap-6">
         <div className="flex flex-col items-center justify-center text-sm">
           <p className="mb-2 font-medium text-base underline">
@@ -40,6 +41,7 @@ export function ReferenceValue() {
             setPrimitiveData with same value
           </button>
         </div>
+
         <div className="flex flex-col items-center justify-center text-sm">
           <p className="mb-2 font-medium text-base underline">
             Non Primitive Data as a Reference Value

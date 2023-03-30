@@ -3,7 +3,9 @@ export default function Home() {
     <div className="flex justify-center items-center h-full min-h-screen">
       <ul>
         <li>
-          <a href="/1-hooks/1-useState">1. Hooks - 1. useState</a>
+          <a href="/1-hooks/1-useState/2-avoid-race-condition.tsx">
+            1. Hooks - 1. useState
+          </a>
         </li>
         <li>
           <a href="/1-hooks/2-useEffect">1. Hooks - 2. useEffect</a>

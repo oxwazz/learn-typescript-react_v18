@@ -5,29 +5,30 @@ import Title from '../../../components/title';
 
 function WithoutCleanUp() {
   useEffect(() => {
-    logInfo('5. CleanUp:', 'WithoutCleanUp useEffect Triggered');
     setInterval(() => {
       // do something like update the state
-      logInfo('5. CleanUp:', 'WithoutCleanUp interval triggered');
+      logInfo('5. CleanUp - WithoutCleanUp:', ' interval triggered');
     }, 1000);
   }, []);
 
-  return <p>useEffect Without Clean Up</p>;
+  return <p>component is mounted</p>;
 }
 
 function WithCleanUp() {
   useEffect(() => {
-    logInfo('5. CleanUp:', 'WithCleanUp useEffect Triggered');
     let intervalId = setInterval(() => {
       // do something like update the state
-      logInfo('5. CleanUp:', 'WithCleanUp interval triggered');
+      logInfo('5. CleanUp - WithCleanUp:', 'interval triggered');
     }, 1000);
 
     // cleanup the timer when component unmount
-    return () => clearInterval(intervalId);
+    return () => {
+      clearInterval(intervalId);
+      logInfo('5. CleanUp - WithCleanUp:', ' clean up function triggered');
+    };
   }, []);
 
-  return <p>useEffect With Clean Up</p>;
+  return <p>component is mounted</p>;
 }
 
 export function CleanUp() {
@@ -36,38 +37,41 @@ export function CleanUp() {
     withoutCleanUp: false
   });
 
+  const handleToggleShow = (type: 'withCleanUp' | 'withoutCleanUp') => {
+    setShow((old) => ({
+      ...old,
+      [type]: !old[type]
+    }));
+  };
+
   return (
     <>
       <Title className="mb-4">5. CleanUp</Title>
+
       <div className="flex gap-6">
         <div className="flex flex-col items-center justify-center text-sm">
-          {show.withCleanUp ? <WithCleanUp /> : 'hide'}
+          <p className="mb-2 font-medium text-base underline">With Clean Up</p>
+          {show.withCleanUp ? <WithCleanUp /> : 'component is unmounted'}
           <p className="text-slate-400">(WithCleanUp: look console log)</p>
           <button
-            onClick={() =>
-              setShow((old) => ({
-                ...old,
-                withCleanUp: !old.withCleanUp
-              }))
-            }
+            onClick={() => handleToggleShow('withCleanUp')}
             className="btn btn-sm mt-4"
           >
-            show/hide WithCleanUp
+            mount/unmount
           </button>
         </div>
+
         <div className="flex flex-col items-center justify-center text-sm">
-          {show.withoutCleanUp ? <WithoutCleanUp /> : 'hide'}
+          <p className="mb-2 font-medium text-base underline">
+            Without Clean Up
+          </p>
+          {show.withoutCleanUp ? <WithoutCleanUp /> : 'component is unmounted'}
           <p className="text-slate-400">(WithoutCleanUp: look console log)</p>
           <button
-            onClick={() =>
-              setShow((old) => ({
-                ...old,
-                withoutCleanUp: !old.withoutCleanUp
-              }))
-            }
+            onClick={() => handleToggleShow('withoutCleanUp')}
             className="btn btn-sm mt-4"
           >
-            show/hide WithoutCleanUp
+            mount/unmount
           </button>
         </div>
       </div>

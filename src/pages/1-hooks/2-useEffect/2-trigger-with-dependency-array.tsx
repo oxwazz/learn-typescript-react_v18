@@ -36,8 +36,10 @@ export function TriggerWithDependencyArray() {
   return (
     <>
       <Title className="mb-4">2. TriggerWithDependencyArray</Title>
+
       <div className="flex flex-col items-center justify-center text-sm">
         <pre>{JSON.stringify(todoDynamic, null, 2)}</pre>
+
         <div className="flex gap-2 justify-center items-center">
           <button
             onClick={() => onChangeTodoId('decrement')}

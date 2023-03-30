@@ -15,6 +15,7 @@ export function WithoutDependencyArray() {
   return (
     <>
       <Title className="mb-4">3. WithoutDependencyArray</Title>
+
       <div className="flex flex-col items-center justify-center text-sm">
         <p>trigger useEffect count: {triggerCount.current}</p>
         <p className="text-slate-400">(look console log)</p>
