@@ -1,3 +1,8 @@
+/**
+ * Reference:
+ * - https://react.dev/reference/react/useEffect
+ * */
+
 import '../../../global.css';
 import { RunOnlyOnce } from './1-run-only-once';
 import { TriggerWithDependencyArray } from './2-trigger-with-dependency-array';

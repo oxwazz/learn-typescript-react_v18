@@ -17,6 +17,18 @@ const router = createBrowserRouter([
   {
     path: '/1-hooks/2-useEffect',
     element: <Hooks.useEffect />
+  },
+  {
+    path: '/1-hooks/3',
+    element: <Hooks.UseCallback />
+  },
+  {
+    path: '/1-hooks/4',
+    element: <Hooks.UseMemo />
+  },
+  {
+    path: '/1-hooks/5',
+    element: <Hooks.useRef />
   }
 ]);
 
